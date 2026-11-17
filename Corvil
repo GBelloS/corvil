@@ -1,0 +1,560 @@
+{
+  "runSettings": {
+    "temperature": 1.0,
+    "model": "models/gemini-4-hydrogen",
+    "topP": 0.95,
+    "topK": 64,
+    "maxOutputTokens": 65536,
+    "safetySettings": [{
+      "category": "HARM_CATEGORY_HARASSMENT",
+      "threshold": "OFF"
+    }, {
+      "category": "HARM_CATEGORY_HATE_SPEECH",
+      "threshold": "OFF"
+    }, {
+      "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+      "threshold": "OFF"
+    }, {
+      "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+      "threshold": "OFF"
+    }],
+    "enableCodeExecution": false,
+    "enableSearchAsATool": true,
+    "enableBrowseAsATool": false,
+    "googleSearch": {
+    },
+    "thinkingLevel": "THINKING_HIGH",
+    "enableImageSearch": false,
+    "enableGoogleMaps": false,
+    "enableAgentThinkingSummariesControl": false,
+    "enableAgentVisualizationControl": false,
+    "enableAgentCollaborativePlanningControl": false,
+    "environmentMode": "new",
+    "enableWordTimestamps": false,
+    "enableSpeakerDiarization": false,
+    "enablePolishedTranscript": false
+  },
+  "systemInstruction": {
+  },
+  "chunkedPrompt": {
+    "chunks": [{
+      "text": "search me a open source or at least free solution that do something close to Pico\u0027s Corvil Analytics",
+      "role": "user",
+      "tokenCount": 52,
+      "createTime": "2026-11-17T20:59:12.298Z"
+    }, {
+      "text": "**Analyzing the Alternatives**\n\nI\u0027m currently focused on identifying open-source or free alternatives to Pico\u0027s Corvil Analytics. The system provides high-performance network monitoring and analytics, so I\u0027m researching tools with comparable capabilities. My initial searches have revealed several possibilities, and I\u0027m diving deeper into their feature sets and limitations.\n\n\n**Discovering Corvil Analytics**\n\nI\u0027ve just been delving into search results for \"Corvil Analytics\" and have turned up some interesting, albeit expected, generic web analytics options alongside a few niche, open-source financial/network tools. The term \"Analytics\" seems to be the culprit behind the broad initial results. I\u0027m focusing on filtering out the irrelevant data.\n\n\n**Defining Open-Source Alternatives**\n\nI\u0027m now clarifying the essential functions of Corvil Analytics to identify suitable open-source alternatives. I\u0027ve broken it down into key features: high-speed packet capture, DPI with protocol decoding, wire-to-wire latency calculation, microburst detection, and trade/message analytics. It\u0027s becoming clearer that a direct open-source replacement doesn\u0027t exist. Corvil\u0027s specialization using high-end NICs makes this a complex challenge.\n\n\n**Identifying Open-Source Solutions**\n\nI\u0027m now diving into specific open-source tools as alternatives. I\u0027m focusing on their capabilities within packet capture, DPI, and latency analysis, and I\u0027ve started compiling a list. Arkime, Zeek, Suricata, and n2disk are contenders for packet capture. For network telemetry, ntopng, Trisul, and others are in the spotlight. I\u0027m also looking into financial protocol-specific tools, including some interesting findings like `epam/ebpf-fix-latency-tool`. I\u0027ll confirm the list is up to date, up to 2026.\n\n\n**Exploring Open-Source Alternatives**\n\nI\u0027m currently investigating open-source alternatives to Corvil, specifically focusing on Zeek with Spicy, coupled with OpenSearch, ClickHouse, or Grafana. I\u0027m also looking into Security Onion and Corelight components. The goal is to identify suitable financial, trading, and FIX parsers within these open-source frameworks to assess their potential fit.\n\n\n**Verifying Free License Details**\n\nI\u0027ve just confirmed that Trisul Network Analytics does indeed offer a free license. Now, I\u0027m focusing on pinpointing the limitations of this free version. I\u0027m looking for specifics on any caps or restrictions that might be in place. I want to understand what I can get for free.\n\n\n**Refining Practical Guidance**\n\nI\u0027m now striving for clarity and practicality in this response, aiming for maximum user value. My focus is on the real-world application of the concept. Currently, I\u0027m reviewing the reality of the Pico Corvil Analytics tool, its enterprise-level hardware, and its low-latency focus.\n\n\n**Assessing Available Alternatives**\n\nI\u0027m now identifying viable open-source alternatives to Corvil\u0027s functionality, focusing on specific use cases. I\u0027ve begun organizing recommendations based on capabilities, starting with high-speed packet capture and indexing, then parsing the different metadata. The goal is to articulate the open source solutions, starting with Arkime.\n\n\n**Exploring Open Source Options**\n\nI\u0027m now diving into open-source possibilities, with Arkime taking center stage for packet capture and indexing, considering its active development. My focus has shifted from the initial exploration of Stenographer/Zeek to a deeper understanding of Arkime\u0027s capabilities. For deep packet inspection and custom protocol parsing, I\u0027m now zeroing in on Zeek with Spicy, highlighting its versatility in handling financial protocols and integrating with various data stores.\n\n\n**Evaluating Monitoring Tools**\n\nI\u0027m now focusing on specific tools for real-time network performance monitoring. I\u0027ve been looking at options like ntopng with nDPI, noting their free/open-source nature and capability to track retransmissions and latency. Packetbeat from Elastic also looks interesting for latency, though with a focus on web protocols out-of-the-box. I\u0027m also considering tshark for its built-in dissectors for financial protocols, useful for post-mortem analysis.\n\n\n**Pinpointing Latency Solutions**\n\nI\u0027m now zeroing in on highly specialized open-source tools for microsecond/nanosecond latency monitoring and Financial Information eXchange (FIX) protocol analysis. Specifically, I am now focusing on `epam/ebpf-fix-latency-tool`, which is a specialized eBPF tool. I\u0027m also considering `fmadio/pcap_latency_analyzer`, and general eBPF observability platforms, such as Cilium Hubble, DeepFlow, and Coroot, which provide zero-instrumentation TCP RTT and packet drops data. I\u0027m getting closer to a well-defined set of open-source recommendations.\n\n\n**Defining Open Source Stack**\n\nI am now focusing on building the open-source \"Corvil\" replica, specifically detailing each layer. First, I am solidifying the *Capture \u0026 Hardware Timestamping* layer, specifying Mellanox/NVIDIA ConnectX NICs with PTP, and pointing to `netsniff-ng`, `Arkime`, `DPDK` and `PF_RING` to avoid kernel jitter. Then, I am clarifying the *Decoding \u0026 Analytics* layer as either Zeek with Spicy parsers or custom eBPF to extract business events. Finally, I am stating that metrics can be streamed into ClickHouse, OpenSearch, or Prometheus, with Grafana for dashboards. I should also note that Trisul\u0027s recent licensing changes make it less viable as an open source option.\n\n\n**Composing Alternative Solutions**\n\nI\u0027ve gathered verified details from my searches and am synthesizing them into a clear, structured response. My goal is to craft an answer specifically addressing someone seeking a free or open-source alternative to Pico\u0027s Corvil Analytics. I\u0027m focusing on providing the user with practical, helpful alternatives.\n\n\n**Clarifying Scope \u0026 Approach**\n\nOkay, I\u0027m focusing on setting realistic expectations upfront. I\u0027m explaining why a direct open-source equivalent to Corvil is unlikely due to its combination of advanced features. Now I\u0027m breaking down alternatives by capability. For full packet capture and fast searching, I\u0027ll recommend Arkime, and mention netsniff-ng and linuxptp. For deep packet inspection and custom protocol decoding, I\u0027m leaning toward Zeek with the Spicy parser engine.\n\n\n**Developing Performance Alternatives**\n\nI\u0027m now expanding my response with some highly relevant tools for high-frequency trading (HFT) environments. I\u0027m detailing how to turn wire traffic into structured transaction logs using OpenSearch or ClickHouse coupled with Grafana. I\u0027ll recommend Wireshark and tshark for ad-hoc FIX/ITCH/OUCH packet dissection. I\u0027m also discussing tools for nanosecond/microsecond latency and FIX order-tracking like `epam/ebpf-fix-latency-tool` and `fmadio/pcap_latency_analyzer`. Lastly, I\u0027ll mention ntopng plus nDPI for real-time network performance insights.\n\n\n**Refining Architecture Options**\n\nI\u0027m now expanding the architectural overview. I\u0027m noting the value of ntopng, especially for its open-source standard setup with PF_RING and n2disk, even if n2disk itself is paid. I\u0027m detailing DeepFlow, highlighting its eBPF capabilities, Wasm plugin support, and Grafana integration. I\u0027m also including Packetbeat as a lightweight analyzer for app-level latency data. Lastly, I\u0027m working to consolidate these tools into a \"DIY Corvil\" pipeline blueprint.\n\n\n**Validating Search Findings**\n\nI\u0027m now cross-referencing my claims with search results to prevent fabrication. I\u0027ve re-verified that each cited tool aligns with the observed features. For instance, Arkime captures PCAP, parses L3-L7 to OpenSearch, and scales to tens or hundreds of Gbps. Zeek\u0027s Spicy is also confirmed to be used in financial institutions for custom protocol parsers. The `epam/ebpf-fix-latency-tool` and `fmadio/pcap_latency_analyzer` have been validated as open-source, and `ntopng` tracks RTT/latency.\n\n\n",
+      "role": "model",
+      "tokenCount": 4499,
+      "isThought": true,
+      "parts": [{
+        "text": "**Analyzing the Alternatives**\n\nI\u0027m currently focused on identifying open-source or free alternatives to Pico\u0027s Corvil Analytics. The system provides high-performance network monitoring and analytics, so I\u0027m researching tools with comparable capabilities. My initial searches have revealed several possibilities, and I\u0027m diving deeper into their feature sets and limitations.\n\n\n",
+        "thought": true
+      }, {
+        "text": "**Discovering Corvil Analytics**\n\nI\u0027ve just been delving into search results for \"Corvil Analytics\" and have turned up some interesting, albeit expected, generic web analytics options alongside a few niche, open-source financial/network tools. The term \"Analytics\" seems to be the culprit behind the broad initial results. I\u0027m focusing on filtering out the irrelevant data.\n\n\n",
+        "thought": true
+      }, {
+        "text": "**Defining Open-Source Alternatives**\n\nI\u0027m now clarifying the essential functions of Corvil Analytics to identify suitable open-source alternatives. I\u0027ve broken it down into key features: high-speed packet capture, DPI with protocol decoding, wire-to-wire latency calculation, microburst detection, and trade/message analytics. It\u0027s becoming clearer that a direct open-source replacement doesn\u0027t exist. Corvil\u0027s specialization using high-end NICs makes this a complex challenge.\n\n\n",
+        "thought": true
+      }, {
+        "text": "**Identifying Open-Source Solutions**\n\nI\u0027m now diving into specific open-source tools as alternatives. I\u0027m focusing on their capabilities within packet capture, DPI, and latency analysis, and I\u0027ve started compiling a list. Arkime, Zeek, Suricata, and n2disk are contenders for packet capture. For network telemetry, ntopng, Trisul, and others are in the spotlight. I\u0027m also looking into financial protocol-specific tools, including some interesting findings like `epam/ebpf-fix-latency-tool`. I\u0027ll confirm the list is up to date, up to 2026.\n\n\n",
+        "thought": true
+      }, {
+        "text": "**Exploring Open-Source Alternatives**\n\nI\u0027m currently investigating open-source alternatives to Corvil, specifically focusing on Zeek with Spicy, coupled with OpenSearch, ClickHouse, or Grafana. I\u0027m also looking into Security Onion and Corelight components. The goal is to identify suitable financial, trading, and FIX parsers within these open-source frameworks to assess their potential fit.\n\n\n",
+        "thought": true
+      }, {
+        "text": "**Verifying Free License Details**\n\nI\u0027ve just confirmed that Trisul Network Analytics does indeed offer a free license. Now, I\u0027m focusing on pinpointing the limitations of this free version. I\u0027m looking for specifics on any caps or restrictions that might be in place. I want to understand what I can get for free.\n\n\n",
+        "thought": true
+      }, {
+        "text": "**Refining Practical Guidance**\n\nI\u0027m now striving for clarity and practicality in this response, aiming for maximum user value. My focus is on the real-world application of the concept. Currently, I\u0027m reviewing the reality of the Pico Corvil Analytics tool, its enterprise-level hardware, and its low-latency focus.\n\n\n",
+        "thought": true
+      }, {
+        "text": "**Assessing Available Alternatives**\n\nI\u0027m now identifying viable open-source alternatives to Corvil\u0027s functionality, focusing on specific use cases. I\u0027ve begun organizing recommendations based on capabilities, starting with high-speed packet capture and indexing, then parsing the different metadata. The goal is to articulate the open source solutions, starting with Arkime.\n\n\n",
+        "thought": true
+      }, {
+        "text": "**Exploring Open Source Options**\n\nI\u0027m now diving into open-source possibilities, with Arkime taking center stage for packet capture and indexing, considering its active development. My focus has shifted from the initial exploration of Stenographer/Zeek to a deeper understanding of Arkime\u0027s capabilities. For deep packet inspection and custom protocol parsing, I\u0027m now zeroing in on Zeek with Spicy, highlighting its versatility in handling financial protocols and integrating with various data stores.\n\n\n",
+        "thought": true
+      }, {
+        "text": "**Evaluating Monitoring Tools**\n\nI\u0027m now focusing on specific tools for real-time network performance monitoring. I\u0027ve been looking at options like ntopng with nDPI, noting their free/open-source nature and capability to track retransmissions and latency. Packetbeat from Elastic also looks interesting for latency, though with a focus on web protocols out-of-the-box. I\u0027m also considering tshark for its built-in dissectors for financial protocols, useful for post-mortem analysis.\n\n\n",
+        "thought": true
+      }, {
+        "text": "**Pinpointing Latency Solutions**\n\nI\u0027m now zeroing in on highly specialized open-source tools for microsecond/nanosecond latency monitoring and Financial Information eXchange (FIX) protocol analysis. Specifically, I am now focusing on `epam/ebpf-fix-latency-tool`, which is a specialized eBPF tool. I\u0027m also considering `fmadio/pcap_latency_analyzer`, and general eBPF observability platforms, such as Cilium Hubble, DeepFlow, and Coroot, which provide zero-instrumentation TCP RTT and packet drops data. I\u0027m getting closer to a well-defined set of open-source recommendations.\n\n\n",
+        "thought": true
+      }, {
+        "text": "**Defining Open Source Stack**\n\nI am now focusing on building the open-source \"Corvil\" replica, specifically detailing each layer. First, I am solidifying the *Capture \u0026 Hardware Timestamping* layer, specifying Mellanox/NVIDIA ConnectX NICs with PTP, and pointing to `netsniff-ng`, `Arkime`, `DPDK` and `PF_RING` to avoid kernel jitter. Then, I am clarifying the *Decoding \u0026 Analytics* layer as either Zeek with Spicy parsers or custom eBPF to extract business events. Finally, I am stating that metrics can be streamed into ClickHouse, OpenSearch, or Prometheus, with Grafana for dashboards. I should also note that Trisul\u0027s recent licensing changes make it less viable as an open source option.\n\n\n",
+        "thought": true
+      }, {
+        "text": "**Composing Alternative Solutions**\n\nI\u0027ve gathered verified details from my searches and am synthesizing them into a clear, structured response. My goal is to craft an answer specifically addressing someone seeking a free or open-source alternative to Pico\u0027s Corvil Analytics. I\u0027m focusing on providing the user with practical, helpful alternatives.\n\n\n",
+        "thought": true
+      }, {
+        "text": "**Clarifying Scope \u0026 Approach**\n\nOkay, I\u0027m focusing on setting realistic expectations upfront. I\u0027m explaining why a direct open-source equivalent to Corvil is unlikely due to its combination of advanced features. Now I\u0027m breaking down alternatives by capability. For full packet capture and fast searching, I\u0027ll recommend Arkime, and mention netsniff-ng and linuxptp. For deep packet inspection and custom protocol decoding, I\u0027m leaning toward Zeek with the Spicy parser engine.\n\n\n",
+        "thought": true
+      }, {
+        "text": "**Developing Performance Alternatives**\n\nI\u0027m now expanding my response with some highly relevant tools for high-frequency trading (HFT) environments. I\u0027m detailing how to turn wire traffic into structured transaction logs using OpenSearch or ClickHouse coupled with Grafana. I\u0027ll recommend Wireshark and tshark for ad-hoc FIX/ITCH/OUCH packet dissection. I\u0027m also discussing tools for nanosecond/microsecond latency and FIX order-tracking like `epam/ebpf-fix-latency-tool` and `fmadio/pcap_latency_analyzer`. Lastly, I\u0027ll mention ntopng plus nDPI for real-time network performance insights.\n\n\n",
+        "thought": true
+      }, {
+        "text": "**Refining Architecture Options**\n\nI\u0027m now expanding the architectural overview. I\u0027m noting the value of ntopng, especially for its open-source standard setup with PF_RING and n2disk, even if n2disk itself is paid. I\u0027m detailing DeepFlow, highlighting its eBPF capabilities, Wasm plugin support, and Grafana integration. I\u0027m also including Packetbeat as a lightweight analyzer for app-level latency data. Lastly, I\u0027m working to consolidate these tools into a \"DIY Corvil\" pipeline blueprint.\n\n\n",
+        "thought": true
+      }, {
+        "text": "**Validating Search Findings**\n\nI\u0027m now cross-referencing my claims with search results to prevent fabrication. I\u0027ve re-verified that each cited tool aligns with the observed features. For instance, Arkime captures PCAP, parses L3-L7 to OpenSearch, and scales to tens or hundreds of Gbps. Zeek\u0027s Spicy is also confirmed to be used in financial institutions for custom protocol parsers. The `epam/ebpf-fix-latency-tool` and `fmadio/pcap_latency_analyzer` have been validated as open-source, and `ntopng` tracks RTT/latency.\n\n\n",
+        "thought": true
+      }],
+      "createTime": "2026-11-17T20:59:12.298Z"
+    }, {
+      "text": "There is **no single 1:1 open-source drop-in replacement** for Pico’s Corvil Analytics. Corvil is a highly specialized platform that combines hardware-accelerated nanosecond timestamping, lossless high-speed packet capture (up to 200 Gbps), built-in decoders for financial protocols (FIX, ITCH, OUCH, SBE), microburst detection, and multi-hop trade lifecycle correlation.\n\nHowever, depending on **which part of Corvil** you are trying to replicate, you can get very close using specialized open-source tools—or by combining a few of them into a stack.\n\n---\n\n### 1. For Financial Protocol (FIX) \u0026 Nanosecond Latency Tracking\nIf you want Corvil’s core trading/HFT latency analytics (measuring order-to-ack delays and hop-by-hop network latency), look at these specialized open-source tools:\n\n* **`ebpf-fix-latency-tool` (by EPAM, GitHub)** – *Closest to Corvil’s FIX latency monitoring*\n  * **What it does:** Attaches eBPF TC hooks at the Linux kernel level to inspect TCP payloads, extracts **FIX Tag 11 (`ClOrdID`)**, correlates inbound requests with outbound responses, and computes round-trip latency with **nanosecond precision**.\n  * **Why it’s great:** Outputs HDR histograms (`p50`, `p99`, `p99.999`) in real time and has been validated up to ~500,000 FIX messages/sec with very low overhead.\n  * **Limitation:** Only monitors FIX Tag 11 on the host where it runs (not an out-of-band network tap appliance).\n\n* **`pcap_latency_analyzer` (by FMADIO, GitHub)** – *Closest to Corvil’s wire-to-wire hop latency*\n  * **What it does:** Takes hardware-timestamped PCAPs captured at two points (e.g., switch ingress and egress, or two redundant market data feeds), hashes the TCP/UDP payloads, matches identical packets, and generates a nanosecond-resolution latency histogram.\n  * **Limitation:** Post-capture CLI analysis tool rather than a live web dashboard.\n\n---\n\n### 2. For Deep Packet Inspection (DPI) \u0026 Protocol Decoding\nIf you need Corvil’s ability to passively decode wire protocols (including custom or financial protocols) into structured logs/metrics:\n\n* **Zeek + Spicy (BSD License)** – *Closest to Corvil’s wire-data decoding engine*\n  * **What it does:** Passively inspects live traffic (via SPAN/TAP) and transforms raw packets into rich, structured transaction logs (TCP connection metrics, RTT, HTTP, TLS, DNS, etc.).\n  * **Financial / Custom Protocols:** Zeek natively includes **Spicy** (a parser generator), which financial firms use to write custom dissectors—such as for **FIX** (4.0–5.0/FIXT) or binary market data feeds—without having to store petabytes of raw PCAPs.\n  * **Best paired with:** OpenSearch/ClickHouse + Grafana for dashboards and alerting.\n\n---\n\n### 3. For High-Speed Full Packet Capture \u0026 Search\nIf you want Corvil’s continuous \"always-on\" PCAP recording with fast querying:\n\n* **Arkime (formerly Moloch, Apache 2.0 License)**\n  * **What it does:** Captures traffic at tens of Gbps to disk in standard PCAP format while indexing L3–L7 session metadata into OpenSearch/Elasticsearch. You get a web UI to search sessions by IP, port, protocol, or tags, and export exact PCAP slices directly into **Wireshark** (which itself has built-in dissectors for FIX, ITCH, OUCH, etc.).\n  * **Note on precision:** For sub-microsecond timestamps, pair Linux capture tools (`netsniff-ng` or `tcpdump --time-stamp-precision\u003dnano`) with a PTP-synchronized NIC (`linuxptp`).\n\n---\n\n### 4. For Real-Time Network Performance, RTT \u0026 Burst Visibility\nIf you are using Corvil more as a general **Network Performance Monitoring \u0026 Diagnostics (NPMD)** tool rather than for trading protocols:\n\n* **ntopng Community Edition + nDPI (GPLv3)**\n  * **What it does:** Continuous real-time traffic visibility, Deep Packet Inspection (via nDPI), TCP retransmissions, packet loss, and RTT/latency KPIs. Newer versions also support high-resolution time-series (15-second granularity or lower) to catch short traffic spikes.\n  * **Caveat:** The core `ntopng` Community edition is free and open source, while their high-speed 100G disk-recording module (`n2disk`) and zero-copy drivers (`PF_RING ZC`) require paid licenses.\n\n* **DeepFlow (Apache 2.0 License)**\n  * **What it does:** Uses eBPF on Linux servers/Kubernetes to automatically build a service map and measure per-flow **TCP connection latency, ACK delay, and application response latency** with zero code changes. It also supports **Wasm plugins** if you want to parse proprietary protocols.\n  * **Best for:** Cloud-native, microservice, or Linux host environments rather than hardware switch taps.\n\n* **Elastic Packetbeat (Open Source / Elastic License)**\n  * **What it does:** Lightweight packet shipper that calculates request/response latency for standard protocols (HTTP, DNS, TLS, MySQL, PostgreSQL, Redis) and streams them into Elasticsearch/OpenSearch + Kibana.\n\n---\n\n### Summary: How to Build a \"DIY Corvil\" Stack for Free\nIf you want to assemble an end-to-end free alternative on commodity Linux hardware:\n\n| Corvil Feature | Open-Source Equivalent |\n| :--- | :--- |\n| **Hardware Timestamping** | PTP-capable NIC (e.g., NVIDIA ConnectX / Intel) + **`linuxptp`** |\n| **Lossless Full PCAP \u0026 Search** | **`Arkime`** (or **`netsniff-ng`** for raw capture) |\n| **Protocol Decoding (incl. FIX)** | **`Zeek` + `Spicy`** (or **`epam/ebpf-fix-latency-tool`** for FIX RTT) |\n| **Real-time Flow \u0026 TCP Health** | **`ntopng Community`** or **`DeepFlow`** |\n| **Storage \u0026 Dashboards** | **ClickHouse** or **OpenSearch** + **Grafana** |\n\nIf you let me know whether your priority is **financial/trading protocols (FIX, market data gaps, tick-to-trade)** or **general data center network latency and microbursts**, I can narrow this down to a specific setup guide.",
+      "role": "model",
+      "grounding": {
+        "corroborationSegments": [{
+          "index": 88,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQGHsN9vRTgIMgwaEhGsndetoHsWTmm6AuE7-lTPHOaj0IxS4ADsA4qiAkCfnFRKB8B-IyANnNikVD70FZ6KHWWjKUbsVuyNHBOVHkEdv6jZN3oZVINVUiDgvwHjwY_JjzxlUOdxAGaweHWfUBgCFcjLB0zvY-72dUcu4lASkKEkdXKcJVir9lcYF0ZfUT6D9udsyD2u",
+          "footnoteNumber": 1
+        }, {
+          "index": 88,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQHXuX6zwgG4ACXOrfXoSMWYWit2bwVYQYyV4ZP5BvjNL74mvq-XKwYCGh-Z7ns2Sni14w8KEvQQB7MLX8ZNkHcDokeCpbrHtoYwXFPWAfkxDvVCKOAaaqa_qXTg7_LEzK94Pawc2LHRncaWN8xF84KAYu1XwFeOXH75xvYVOAFA4GjUKipNWGlGI_k6eGLZ",
+          "footnoteNumber": 2
+        }, {
+          "index": 372,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQHXuX6zwgG4ACXOrfXoSMWYWit2bwVYQYyV4ZP5BvjNL74mvq-XKwYCGh-Z7ns2Sni14w8KEvQQB7MLX8ZNkHcDokeCpbrHtoYwXFPWAfkxDvVCKOAaaqa_qXTg7_LEzK94Pawc2LHRncaWN8xF84KAYu1XwFeOXH75xvYVOAFA4GjUKipNWGlGI_k6eGLZ",
+          "footnoteNumber": 2
+        }, {
+          "index": 372,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQFbsSUTZk_EruMaSE-iL8EZf-dBiDFtU4G33uP1LQSvBvYuO6UaC__otHbDcJT5W9qR169gcuS-61Nqel8aeyRJzEUiAFhBGSWqSSXbXChq80QsOeb5sHMJ97QWmJ23iy23qUAW6zahDUl9xyT2JLfGb-WXP4pB",
+          "footnoteNumber": 3
+        }, {
+          "index": 372,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQHNIhor2S7Sv3zDAAUTVmR9PD-PlI_4EU3JcfMK-GEzRcBDuyjaBUsfm-80L6zWVdI04QiATBWvoUjH3MonXrkdgeA7-63koR1KNTfa83Z3H6rdJWhiQeEPijDUIOWvQ-jww218vJpFFC0TFI3ARYfIZ3gKs-V74A%3D%3D",
+          "footnoteNumber": 4
+        }, {
+          "index": 894,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQHz9WXrN3XOT6uFQXfiHvxalAAYBfnG-2qp9pnE71qAgfGDLDD5zYUos3XY0e9Bcp6W6kCQXdZudx928JP3uAgRe3RDuSGT6qPpy8oTvC7a0T_IoT7aGWv8ZpaDaebyEChLaw%3D%3D",
+          "footnoteNumber": 5
+        }, {
+          "index": 1142,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQHz9WXrN3XOT6uFQXfiHvxalAAYBfnG-2qp9pnE71qAgfGDLDD5zYUos3XY0e9Bcp6W6kCQXdZudx928JP3uAgRe3RDuSGT6qPpy8oTvC7a0T_IoT7aGWv8ZpaDaebyEChLaw%3D%3D",
+          "footnoteNumber": 5
+        }, {
+          "index": 1142,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQHz9WXrN3XOT6uFQXfiHvxalAAYBfnG-2qp9pnE71qAgfGDLDD5zYUos3XY0e9Bcp6W6kCQXdZudx928JP3uAgRe3RDuSGT6qPpy8oTvC7a0T_IoT7aGWv8ZpaDaebyEChLaw%3D%3D",
+          "footnoteNumber": 6
+        }, {
+          "index": 1309,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQHz9WXrN3XOT6uFQXfiHvxalAAYBfnG-2qp9pnE71qAgfGDLDD5zYUos3XY0e9Bcp6W6kCQXdZudx928JP3uAgRe3RDuSGT6qPpy8oTvC7a0T_IoT7aGWv8ZpaDaebyEChLaw%3D%3D",
+          "footnoteNumber": 6
+        }, {
+          "index": 1424,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQHz9WXrN3XOT6uFQXfiHvxalAAYBfnG-2qp9pnE71qAgfGDLDD5zYUos3XY0e9Bcp6W6kCQXdZudx928JP3uAgRe3RDuSGT6qPpy8oTvC7a0T_IoT7aGWv8ZpaDaebyEChLaw%3D%3D",
+          "footnoteNumber": 5
+        }, {
+          "index": 1529,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQFEBfaQo5jayBibaMAwr1aXDHZYlZWv7wKbaBNrisBWS9IEM7k0WWVs31ywVHKzPjJscqnPOhrExJUHURBBp_sHY7rWIHZuOszg2DJ7daAbjHn-u_qgqFoPG5heBVMGza_eD96t",
+          "footnoteNumber": 7
+        }, {
+          "index": 1790,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQFEBfaQo5jayBibaMAwr1aXDHZYlZWv7wKbaBNrisBWS9IEM7k0WWVs31ywVHKzPjJscqnPOhrExJUHURBBp_sHY7rWIHZuOszg2DJ7daAbjHn-u_qgqFoPG5heBVMGza_eD96t",
+          "footnoteNumber": 7
+        }, {
+          "index": 1790,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQE8bJp_WlTVN0YVO8ASJsvaoPd6MSAaJeR_YqynwoFfavkRfv2q7b8nRRMlPT9vEVP6mfK_lUriICsgK1XorOAL43LHlJ4OyR0FvZ6IHAzX-e_nMRhF5c6_l1WxHn0%3D",
+          "footnoteNumber": 8
+        }, {
+          "index": 1875,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQFEBfaQo5jayBibaMAwr1aXDHZYlZWv7wKbaBNrisBWS9IEM7k0WWVs31ywVHKzPjJscqnPOhrExJUHURBBp_sHY7rWIHZuOszg2DJ7daAbjHn-u_qgqFoPG5heBVMGza_eD96t",
+          "footnoteNumber": 7
+        }, {
+          "index": 2168,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQHUYpIbGFNAUWwetK6b7CnzekMq7VQikQwsvJnM5dAWe9JcJ0xxGfIHbXZn9ybXbB6M469H1IHx8f4xKsnQTzrF3ZvXGudA_1apnnQbxLZxykyUQjRAV-pr_QizVTokrmw2_mFSOauDrSaYWZdpmQ%3D%3D",
+          "footnoteNumber": 9
+        }, {
+          "index": 2168,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQH1K0QnQeqI5qBva3mKae2TNB0-ILFcnmuLoxc23ntRgtk2_H4RthCG8tyP23GgeohcK84dU3gX6nYyk48oLJTT3wWfsptcMmjg-GfX5w6_rBCvZ0UGBQaTuQtOjw%3D%3D",
+          "footnoteNumber": 10
+        }, {
+          "index": 2355,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQHUYpIbGFNAUWwetK6b7CnzekMq7VQikQwsvJnM5dAWe9JcJ0xxGfIHbXZn9ybXbB6M469H1IHx8f4xKsnQTzrF3ZvXGudA_1apnnQbxLZxykyUQjRAV-pr_QizVTokrmw2_mFSOauDrSaYWZdpmQ%3D%3D",
+          "footnoteNumber": 9
+        }, {
+          "index": 2355,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQEuzgch0eEIThz0BO8FxXdmE1wDV6c8n56MctE6nTuEP860Uqc0ubmxMKUYBL-J4ssTCx1FPB8A-ZabsKU-npO5gcniNUt5eOcPyzGAzuHzVqdeaVsU4__Q",
+          "footnoteNumber": 11
+        }, {
+          "index": 2448,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQEWR0thpcFuVmm4X-YPtjuxFFNJ9fOiIfBRhZMLrSbXMigtjIZ0keIavPyrw2pwd_1h9hYaaFQW1v4igQSCzB1WgQvD41HfxbYu7u7u5qHc7Tux-Mv9sJKDCQ%3D%3D",
+          "footnoteNumber": 12
+        }, {
+          "index": 2541,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQHUYpIbGFNAUWwetK6b7CnzekMq7VQikQwsvJnM5dAWe9JcJ0xxGfIHbXZn9ybXbB6M469H1IHx8f4xKsnQTzrF3ZvXGudA_1apnnQbxLZxykyUQjRAV-pr_QizVTokrmw2_mFSOauDrSaYWZdpmQ%3D%3D",
+          "footnoteNumber": 9
+        }, {
+          "index": 2618,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQHUYpIbGFNAUWwetK6b7CnzekMq7VQikQwsvJnM5dAWe9JcJ0xxGfIHbXZn9ybXbB6M469H1IHx8f4xKsnQTzrF3ZvXGudA_1apnnQbxLZxykyUQjRAV-pr_QizVTokrmw2_mFSOauDrSaYWZdpmQ%3D%3D",
+          "footnoteNumber": 9
+        }, {
+          "index": 2843,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQHNIhor2S7Sv3zDAAUTVmR9PD-PlI_4EU3JcfMK-GEzRcBDuyjaBUsfm-80L6zWVdI04QiATBWvoUjH3MonXrkdgeA7-63koR1KNTfa83Z3H6rdJWhiQeEPijDUIOWvQ-jww218vJpFFC0TFI3ARYfIZ3gKs-V74A%3D%3D",
+          "footnoteNumber": 4
+        }, {
+          "index": 2896,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQHYBt8uekenKVPHFp_2VC9HVpBm1_iDUC9EDQAC0BmR-6hlg0S1mOU9Mm1eV4xYTQ45GeumCrRtG7f52ohY7LW_O98I4VTJNo2Uq_8NmGFU9AATvA%3D%3D",
+          "footnoteNumber": 13
+        }, {
+          "index": 3053,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQGCTErdJfQPySWLt17yYrxgP72LjCqu_-o-Qnfrjosg6OW--XFFxjcO8EPgV5Y8OLrIYsEQtzy-9rDuwVTO4gBoOoqczZddsqQ%3D",
+          "footnoteNumber": 14
+        }, {
+          "index": 3053,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQFWUgzHFm4cYZ_sg3AWwDCBtdjWYw7O3bhfwSbosrPRe2vqTyxfwt8b_orG9XS--cTQ_ZE5wJkswPgtHeThBKT7zgWlxtWIStFVxlXmwCeQebC7mz2y",
+          "footnoteNumber": 15
+        }, {
+          "index": 3244,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQGCTErdJfQPySWLt17yYrxgP72LjCqu_-o-Qnfrjosg6OW--XFFxjcO8EPgV5Y8OLrIYsEQtzy-9rDuwVTO4gBoOoqczZddsqQ%3D",
+          "footnoteNumber": 14
+        }, {
+          "index": 3244,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQFWUgzHFm4cYZ_sg3AWwDCBtdjWYw7O3bhfwSbosrPRe2vqTyxfwt8b_orG9XS--cTQ_ZE5wJkswPgtHeThBKT7zgWlxtWIStFVxlXmwCeQebC7mz2y",
+          "footnoteNumber": 15
+        }, {
+          "index": 3386,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQG0-WR4tJ84RMH4vzjrklFLo-S667uj9UVkXjJSrgz6oX8V8_BijTz4irAL7B_at3k5D5eqnqp9YvUDh2kq-3TKA6nKQPdcxDzm1soymL6CBcKZw8ABQPc3qEQu5EGG7WyoDkYUNEznVKWG",
+          "footnoteNumber": 16
+        }, {
+          "index": 3427,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQFCFVafk1m60NgQoLg5UTRiWELRsjYKPqaDtsXxftP5ykLr-Ju6LSilpZ8GaKo4cfNTfBpH50KCJ1N9ZltGn4p7Roj0tDtkw8vudkAABOPWwMFa7CPCxYPNrwnl0imr7lQTChStTSAAaG8-JXdNngC7XCsUPtnJohJofG6LUFH_dCfhwkM%3D",
+          "footnoteNumber": 17
+        }, {
+          "index": 3684,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQGhtSWaw80iB96Ti-i1HSDTySUBqTDsyose7GfvOKu7s4_3Gan3e4KTIt-Z82sDJXSYpD_-qxLNwbLijq7XYmDTf2-koG9_Gb4mMWN5KoFyB-6ijacrwypgWTh3dqptlKFjFuHFjWCWf0tQSYdo",
+          "footnoteNumber": 18
+        }, {
+          "index": 3684,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQGbNOuDbfek7JoEdTpMTTKlIkitVcwsVuT5cl480-1fz_PxOMYa7ZGGKxFCayExPgbvWrz1pGui9w_5VZp2KY7LNHFGrRIjDAqUzMI9iw2I_77fe0nqOEXfpb_GNSLXWoWSuvT77E6jJ3ULbnATepzzFpAHKeWgIBPo2S_6d8HiWrBs4hn9E8zAYoklKK02G9bJo_996uCbuf8Zoo73LeW6LacKDro%3D",
+          "footnoteNumber": 19
+        }, {
+          "index": 3837,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQGhtSWaw80iB96Ti-i1HSDTySUBqTDsyose7GfvOKu7s4_3Gan3e4KTIt-Z82sDJXSYpD_-qxLNwbLijq7XYmDTf2-koG9_Gb4mMWN5KoFyB-6ijacrwypgWTh3dqptlKFjFuHFjWCWf0tQSYdo",
+          "footnoteNumber": 18
+        }, {
+          "index": 3837,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQGgrcqY4x8yGrIRgXf3yDnI385QERpRz9Odf70uJr750CARGQwIpFZeXySKcGmUR6s8xLYGlE-ICTkbF_zSLQl1TAEpJfkIhN8o6K1qgF0GAATAW8SONgKuBH2Ft3WMYK-T2bjzd80R64Py8llc2W-pHLmEEK7i-mmg-WWOAxYNkfoQalpm324%3D",
+          "footnoteNumber": 20
+        }, {
+          "index": 3957,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQGgrcqY4x8yGrIRgXf3yDnI385QERpRz9Odf70uJr750CARGQwIpFZeXySKcGmUR6s8xLYGlE-ICTkbF_zSLQl1TAEpJfkIhN8o6K1qgF0GAATAW8SONgKuBH2Ft3WMYK-T2bjzd80R64Py8llc2W-pHLmEEK7i-mmg-WWOAxYNkfoQalpm324%3D",
+          "footnoteNumber": 20
+        }, {
+          "index": 4034,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQGbNOuDbfek7JoEdTpMTTKlIkitVcwsVuT5cl480-1fz_PxOMYa7ZGGKxFCayExPgbvWrz1pGui9w_5VZp2KY7LNHFGrRIjDAqUzMI9iw2I_77fe0nqOEXfpb_GNSLXWoWSuvT77E6jJ3ULbnATepzzFpAHKeWgIBPo2S_6d8HiWrBs4hn9E8zAYoklKK02G9bJo_996uCbuf8Zoo73LeW6LacKDro%3D",
+          "footnoteNumber": 19
+        }, {
+          "index": 4155,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQGbNOuDbfek7JoEdTpMTTKlIkitVcwsVuT5cl480-1fz_PxOMYa7ZGGKxFCayExPgbvWrz1pGui9w_5VZp2KY7LNHFGrRIjDAqUzMI9iw2I_77fe0nqOEXfpb_GNSLXWoWSuvT77E6jJ3ULbnATepzzFpAHKeWgIBPo2S_6d8HiWrBs4hn9E8zAYoklKK02G9bJo_996uCbuf8Zoo73LeW6LacKDro%3D",
+          "footnoteNumber": 19
+        }, {
+          "index": 4155,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQGgrcqY4x8yGrIRgXf3yDnI385QERpRz9Odf70uJr750CARGQwIpFZeXySKcGmUR6s8xLYGlE-ICTkbF_zSLQl1TAEpJfkIhN8o6K1qgF0GAATAW8SONgKuBH2Ft3WMYK-T2bjzd80R64Py8llc2W-pHLmEEK7i-mmg-WWOAxYNkfoQalpm324%3D",
+          "footnoteNumber": 20
+        }, {
+          "index": 4193,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQE5APo1LOSEEFrRV_jJlraXNzhGqS3_IL2UVfb6dGq2isfVp0BT44hQvDh6xH2NCoE88yZh4DH1XaKae5aqZU-OhcImtKTdLdOGQEQHIdnoMxTT88UlH4dWEKmof9o%3D",
+          "footnoteNumber": 21
+        }, {
+          "index": 4406,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQE5APo1LOSEEFrRV_jJlraXNzhGqS3_IL2UVfb6dGq2isfVp0BT44hQvDh6xH2NCoE88yZh4DH1XaKae5aqZU-OhcImtKTdLdOGQEQHIdnoMxTT88UlH4dWEKmof9o%3D",
+          "footnoteNumber": 21
+        }, {
+          "index": 4406,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQF0a80qXg-mUvyIUZeo6iTUGNvr843o4OWnxz2F3mIo1VG4usBL0dl3MZKca3VU-urmOEKJ8ebNJNVX1glqNGkyRraG1rNuypm9XIqU6zybUtAdrv0cv8x2FMI-TaC6craKCNRi7-StkV58SLAZQHdEnPtTg9vJaWGVr7eNn7bwhQ7XlQ%3D%3D",
+          "footnoteNumber": 22
+        }, {
+          "index": 4484,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQE5APo1LOSEEFrRV_jJlraXNzhGqS3_IL2UVfb6dGq2isfVp0BT44hQvDh6xH2NCoE88yZh4DH1XaKae5aqZU-OhcImtKTdLdOGQEQHIdnoMxTT88UlH4dWEKmof9o%3D",
+          "footnoteNumber": 21
+        }, {
+          "index": 4591,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQE5APo1LOSEEFrRV_jJlraXNzhGqS3_IL2UVfb6dGq2isfVp0BT44hQvDh6xH2NCoE88yZh4DH1XaKae5aqZU-OhcImtKTdLdOGQEQHIdnoMxTT88UlH4dWEKmof9o%3D",
+          "footnoteNumber": 21
+        }, {
+          "index": 4650,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQEZR1JsiFUmW6At3YNl-NrClWD4viJj9QEyqFmo5meIk5lEL5QyAvtGWm7gf8aHWeGYq6_U5fvYw3J4xwYPdNJXHq-ZZrPD8LuARhjbwOxwFxjg7xSfb4m0ECireqb7s3OsDMybbOUM1pxjfGbl-W-Gvg0XL5uDEUpEQEakaTY5khw9Hw0gSRQ%3D",
+          "footnoteNumber": 23
+        }, {
+          "index": 4862,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQEZR1JsiFUmW6At3YNl-NrClWD4viJj9QEyqFmo5meIk5lEL5QyAvtGWm7gf8aHWeGYq6_U5fvYw3J4xwYPdNJXHq-ZZrPD8LuARhjbwOxwFxjg7xSfb4m0ECireqb7s3OsDMybbOUM1pxjfGbl-W-Gvg0XL5uDEUpEQEakaTY5khw9Hw0gSRQ%3D",
+          "footnoteNumber": 23
+        }, {
+          "index": 5165,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQFCFVafk1m60NgQoLg5UTRiWELRsjYKPqaDtsXxftP5ykLr-Ju6LSilpZ8GaKo4cfNTfBpH50KCJ1N9ZltGn4p7Roj0tDtkw8vudkAABOPWwMFa7CPCxYPNrwnl0imr7lQTChStTSAAaG8-JXdNngC7XCsUPtnJohJofG6LUFH_dCfhwkM%3D",
+          "footnoteNumber": 17
+        }, {
+          "index": 5216,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQFWUgzHFm4cYZ_sg3AWwDCBtdjWYw7O3bhfwSbosrPRe2vqTyxfwt8b_orG9XS--cTQ_ZE5wJkswPgtHeThBKT7zgWlxtWIStFVxlXmwCeQebC7mz2y",
+          "footnoteNumber": 15
+        }, {
+          "index": 5255,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQHCPru8XZd_JAK7pVnPy3qQvsbGCZUw2vZ2N8kAmFc94jOMNHDOuxStrQIf561OkJDNR7f2ovUmxqib8tkYuRPI0gNHtDktjfYktEzmhTMl1VYvRaTcF4_PUpwHlj1wvfKl0GPJ0M8eVmY6kkt3p80lXWfZTTY%3D",
+          "footnoteNumber": 24
+        }, {
+          "index": 5316,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQHUYpIbGFNAUWwetK6b7CnzekMq7VQikQwsvJnM5dAWe9JcJ0xxGfIHbXZn9ybXbB6M469H1IHx8f4xKsnQTzrF3ZvXGudA_1apnnQbxLZxykyUQjRAV-pr_QizVTokrmw2_mFSOauDrSaYWZdpmQ%3D%3D",
+          "footnoteNumber": 9
+        }, {
+          "index": 5316,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQEWR0thpcFuVmm4X-YPtjuxFFNJ9fOiIfBRhZMLrSbXMigtjIZ0keIavPyrw2pwd_1h9hYaaFQW1v4igQSCzB1WgQvD41HfxbYu7u7u5qHc7Tux-Mv9sJKDCQ%3D%3D",
+          "footnoteNumber": 12
+        }, {
+          "index": 5366,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQHz9WXrN3XOT6uFQXfiHvxalAAYBfnG-2qp9pnE71qAgfGDLDD5zYUos3XY0e9Bcp6W6kCQXdZudx928JP3uAgRe3RDuSGT6qPpy8oTvC7a0T_IoT7aGWv8ZpaDaebyEChLaw%3D%3D",
+          "footnoteNumber": 5
+        }, {
+          "index": 5427,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQGhtSWaw80iB96Ti-i1HSDTySUBqTDsyose7GfvOKu7s4_3Gan3e4KTIt-Z82sDJXSYpD_-qxLNwbLijq7XYmDTf2-koG9_Gb4mMWN5KoFyB-6ijacrwypgWTh3dqptlKFjFuHFjWCWf0tQSYdo",
+          "footnoteNumber": 18
+        }, {
+          "index": 5445,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQF0a80qXg-mUvyIUZeo6iTUGNvr843o4OWnxz2F3mIo1VG4usBL0dl3MZKca3VU-urmOEKJ8ebNJNVX1glqNGkyRraG1rNuypm9XIqU6zybUtAdrv0cv8x2FMI-TaC6craKCNRi7-StkV58SLAZQHdEnPtTg9vJaWGVr7eNn7bwhQ7XlQ%3D%3D",
+          "footnoteNumber": 22
+        }],
+        "webSearchQueries": ["open source financial network latency monitoring FIX PCAP", "\"Zeek\" FIX protocol OR financial market data latency", "\"Corvil\" open source alternative network packet latency", "\"epam/ebpf-fix-latency-tool\"", "\"Zeek\" \"FIX\" protocol parser spicy OR github", "open source full packet capture 10Gbps OR 40Gbps OR 100Gbps hardware timestamping", "\"netsniff-ng\" hardware timestamping PTP OR SO_TIMESTAMPING", "\"DeepFlow\" eBPF network latency observability open source", "\"ntopng\" community edition microburst OR latency OR \"FIX\""],
+        "groundingSources": [{
+          "referenceNumber": 1,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQGHsN9vRTgIMgwaEhGsndetoHsWTmm6AuE7-lTPHOaj0IxS4ADsA4qiAkCfnFRKB8B-IyANnNikVD70FZ6KHWWjKUbsVuyNHBOVHkEdv6jZN3oZVINVUiDgvwHjwY_JjzxlUOdxAGaweHWfUBgCFcjLB0zvY-72dUcu4lASkKEkdXKcJVir9lcYF0ZfUT6D9udsyD2u",
+          "title": "a-teaminsight.com"
+        }, {
+          "referenceNumber": 2,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQHXuX6zwgG4ACXOrfXoSMWYWit2bwVYQYyV4ZP5BvjNL74mvq-XKwYCGh-Z7ns2Sni14w8KEvQQB7MLX8ZNkHcDokeCpbrHtoYwXFPWAfkxDvVCKOAaaqa_qXTg7_LEzK94Pawc2LHRncaWN8xF84KAYu1XwFeOXH75xvYVOAFA4GjUKipNWGlGI_k6eGLZ",
+          "title": "parse.gl"
+        }, {
+          "referenceNumber": 3,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQFbsSUTZk_EruMaSE-iL8EZf-dBiDFtU4G33uP1LQSvBvYuO6UaC__otHbDcJT5W9qR169gcuS-61Nqel8aeyRJzEUiAFhBGSWqSSXbXChq80QsOeb5sHMJ97QWmJ23iy23qUAW6zahDUl9xyT2JLfGb-WXP4pB",
+          "title": "pico.net"
+        }, {
+          "referenceNumber": 4,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQHNIhor2S7Sv3zDAAUTVmR9PD-PlI_4EU3JcfMK-GEzRcBDuyjaBUsfm-80L6zWVdI04QiATBWvoUjH3MonXrkdgeA7-63koR1KNTfa83Z3H6rdJWhiQeEPijDUIOWvQ-jww218vJpFFC0TFI3ARYfIZ3gKs-V74A%3D%3D",
+          "title": "pico.net"
+        }, {
+          "referenceNumber": 5,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQHz9WXrN3XOT6uFQXfiHvxalAAYBfnG-2qp9pnE71qAgfGDLDD5zYUos3XY0e9Bcp6W6kCQXdZudx928JP3uAgRe3RDuSGT6qPpy8oTvC7a0T_IoT7aGWv8ZpaDaebyEChLaw%3D%3D",
+          "title": "github.com"
+        }, {
+          "referenceNumber": 6,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQHz9WXrN3XOT6uFQXfiHvxalAAYBfnG-2qp9pnE71qAgfGDLDD5zYUos3XY0e9Bcp6W6kCQXdZudx928JP3uAgRe3RDuSGT6qPpy8oTvC7a0T_IoT7aGWv8ZpaDaebyEChLaw%3D%3D",
+          "title": "github.com"
+        }, {
+          "referenceNumber": 7,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQFEBfaQo5jayBibaMAwr1aXDHZYlZWv7wKbaBNrisBWS9IEM7k0WWVs31ywVHKzPjJscqnPOhrExJUHURBBp_sHY7rWIHZuOszg2DJ7daAbjHn-u_qgqFoPG5heBVMGza_eD96t",
+          "title": "github.com"
+        }, {
+          "referenceNumber": 8,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQE8bJp_WlTVN0YVO8ASJsvaoPd6MSAaJeR_YqynwoFfavkRfv2q7b8nRRMlPT9vEVP6mfK_lUriICsgK1XorOAL43LHlJ4OyR0FvZ6IHAzX-e_nMRhF5c6_l1WxHn0%3D",
+          "title": "fmad.io"
+        }, {
+          "referenceNumber": 9,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQHUYpIbGFNAUWwetK6b7CnzekMq7VQikQwsvJnM5dAWe9JcJ0xxGfIHbXZn9ybXbB6M469H1IHx8f4xKsnQTzrF3ZvXGudA_1apnnQbxLZxykyUQjRAV-pr_QizVTokrmw2_mFSOauDrSaYWZdpmQ%3D%3D",
+          "title": "corelight.com"
+        }, {
+          "referenceNumber": 10,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQH1K0QnQeqI5qBva3mKae2TNB0-ILFcnmuLoxc23ntRgtk2_H4RthCG8tyP23GgeohcK84dU3gX6nYyk48oLJTT3wWfsptcMmjg-GfX5w6_rBCvZ0UGBQaTuQtOjw%3D%3D",
+          "title": "github.com"
+        }, {
+          "referenceNumber": 11,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQEuzgch0eEIThz0BO8FxXdmE1wDV6c8n56MctE6nTuEP860Uqc0ubmxMKUYBL-J4ssTCx1FPB8A-ZabsKU-npO5gcniNUt5eOcPyzGAzuHzVqdeaVsU4__Q",
+          "title": "github.com"
+        }, {
+          "referenceNumber": 12,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQEWR0thpcFuVmm4X-YPtjuxFFNJ9fOiIfBRhZMLrSbXMigtjIZ0keIavPyrw2pwd_1h9hYaaFQW1v4igQSCzB1WgQvD41HfxbYu7u7u5qHc7Tux-Mv9sJKDCQ%3D%3D",
+          "title": "github.com"
+        }, {
+          "referenceNumber": 13,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQHYBt8uekenKVPHFp_2VC9HVpBm1_iDUC9EDQAC0BmR-6hlg0S1mOU9Mm1eV4xYTQ45GeumCrRtG7f52ohY7LW_O98I4VTJNo2Uq_8NmGFU9AATvA%3D%3D",
+          "title": "nhimg.org"
+        }, {
+          "referenceNumber": 14,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQGCTErdJfQPySWLt17yYrxgP72LjCqu_-o-Qnfrjosg6OW--XFFxjcO8EPgV5Y8OLrIYsEQtzy-9rDuwVTO4gBoOoqczZddsqQ%3D",
+          "title": "arkime.com"
+        }, {
+          "referenceNumber": 15,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQFWUgzHFm4cYZ_sg3AWwDCBtdjWYw7O3bhfwSbosrPRe2vqTyxfwt8b_orG9XS--cTQ_ZE5wJkswPgtHeThBKT7zgWlxtWIStFVxlXmwCeQebC7mz2y",
+          "title": "github.com"
+        }, {
+          "referenceNumber": 16,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQG0-WR4tJ84RMH4vzjrklFLo-S667uj9UVkXjJSrgz6oX8V8_BijTz4irAL7B_at3k5D5eqnqp9YvUDh2kq-3TKA6nKQPdcxDzm1soymL6CBcKZw8ABQPc3qEQu5EGG7WyoDkYUNEznVKWG",
+          "title": "man7.org"
+        }, {
+          "referenceNumber": 17,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQFCFVafk1m60NgQoLg5UTRiWELRsjYKPqaDtsXxftP5ykLr-Ju6LSilpZ8GaKo4cfNTfBpH50KCJ1N9ZltGn4p7Roj0tDtkw8vudkAABOPWwMFa7CPCxYPNrwnl0imr7lQTChStTSAAaG8-JXdNngC7XCsUPtnJohJofG6LUFH_dCfhwkM%3D",
+          "title": "atlassian.net"
+        }, {
+          "referenceNumber": 18,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQGhtSWaw80iB96Ti-i1HSDTySUBqTDsyose7GfvOKu7s4_3Gan3e4KTIt-Z82sDJXSYpD_-qxLNwbLijq7XYmDTf2-koG9_Gb4mMWN5KoFyB-6ijacrwypgWTh3dqptlKFjFuHFjWCWf0tQSYdo",
+          "title": "ntop.org"
+        }, {
+          "referenceNumber": 19,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQGbNOuDbfek7JoEdTpMTTKlIkitVcwsVuT5cl480-1fz_PxOMYa7ZGGKxFCayExPgbvWrz1pGui9w_5VZp2KY7LNHFGrRIjDAqUzMI9iw2I_77fe0nqOEXfpb_GNSLXWoWSuvT77E6jJ3ULbnATepzzFpAHKeWgIBPo2S_6d8HiWrBs4hn9E8zAYoklKK02G9bJo_996uCbuf8Zoo73LeW6LacKDro%3D",
+          "title": "virtualizationreview.com"
+        }, {
+          "referenceNumber": 20,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQGgrcqY4x8yGrIRgXf3yDnI385QERpRz9Odf70uJr750CARGQwIpFZeXySKcGmUR6s8xLYGlE-ICTkbF_zSLQl1TAEpJfkIhN8o6K1qgF0GAATAW8SONgKuBH2Ft3WMYK-T2bjzd80R64Py8llc2W-pHLmEEK7i-mmg-WWOAxYNkfoQalpm324%3D",
+          "title": "ntop.org"
+        }, {
+          "referenceNumber": 21,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQE5APo1LOSEEFrRV_jJlraXNzhGqS3_IL2UVfb6dGq2isfVp0BT44hQvDh6xH2NCoE88yZh4DH1XaKae5aqZU-OhcImtKTdLdOGQEQHIdnoMxTT88UlH4dWEKmof9o%3D",
+          "title": "deepflow.io"
+        }, {
+          "referenceNumber": 22,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQF0a80qXg-mUvyIUZeo6iTUGNvr843o4OWnxz2F3mIo1VG4usBL0dl3MZKca3VU-urmOEKJ8ebNJNVX1glqNGkyRraG1rNuypm9XIqU6zybUtAdrv0cv8x2FMI-TaC6craKCNRi7-StkV58SLAZQHdEnPtTg9vJaWGVr7eNn7bwhQ7XlQ%3D%3D",
+          "title": "deepflow.io"
+        }, {
+          "referenceNumber": 23,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQEZR1JsiFUmW6At3YNl-NrClWD4viJj9QEyqFmo5meIk5lEL5QyAvtGWm7gf8aHWeGYq6_U5fvYw3J4xwYPdNJXHq-ZZrPD8LuARhjbwOxwFxjg7xSfb4m0ECireqb7s3OsDMybbOUM1pxjfGbl-W-Gvg0XL5uDEUpEQEakaTY5khw9Hw0gSRQ%3D",
+          "title": "peerspot.com"
+        }, {
+          "referenceNumber": 24,
+          "uri": "https://www.google.com/url?sa\u003dE\u0026q\u003dhttps%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQHCPru8XZd_JAK7pVnPy3qQvsbGCZUw2vZ2N8kAmFc94jOMNHDOuxStrQIf561OkJDNR7f2ovUmxqib8tkYuRPI0gNHtDktjfYktEzmhTMl1VYvRaTcF4_PUpwHlj1wvfKl0GPJ0M8eVmY6kkt3p80lXWfZTTY%3D",
+          "title": "github.com"
+        }]
+      },
+      "finishReason": "STOP",
+      "tokenCount": 2103,
+      "parts": [{
+        "text": "There is **no single 1:1 open"
+      }, {
+        "text": "-source drop-in replacement** for Pico’s Corvil Analytics."
+      }, {
+        "text": " Corvil is a highly specialized platform that combines hardware-accelerated nanosecond timestamping, lossless high-speed packet capture (up"
+      }, {
+        "text": " to 200 Gbps), built-in decoders for financial protocols (FIX, ITCH, OUCH, SBE),"
+      }, {
+        "text": " microburst detection, and multi-hop trade lifecycle correlation"
+      }, {
+        "text": ".\n\nHowever, depending on **which part of Corvil** you are trying to replicate, you can get very"
+      }, {
+        "text": " close using specialized open-source tools—or by combining a few of them into a stack.\n\n---\n\n### "
+      }, {
+        "text": "1. For Financial Protocol (FIX) \u0026 Nanosecond Latency Tracking\nIf you want Corvil’s core trading/HFT latency analytics"
+      }, {
+        "text": " (measuring order-to-ack delays and hop-by-hop network latency), look at these specialized open-source tools:\n\n* **"
+      }, {
+        "text": "`ebpf-fix-latency-tool` (by EPAM, GitHub)** – *Closest to Corvil’s FIX"
+      }, {
+        "text": " latency monitoring*\n  * **What it does:** Attaches eBPF TC hooks at the Linux kernel level"
+      }, {
+        "text": " to inspect TCP payloads, extracts **FIX Tag 11 (`ClOrdID`)**, correlates inbound requests with outbound responses, and computes round-"
+      }, {
+        "text": "trip latency with **nanosecond precision**.\n  "
+      }, {
+        "text": "* **Why it’s great:** Outputs HDR histograms (`p50`, `p99`, `p9"
+      }, {
+        "text": "9.999`) in real time and has been validated up to ~500,000 FIX messages/sec with very low overhead"
+      }, {
+        "text": ".\n  * **Limitation:** Only monitors FIX Tag 11 on the host where"
+      }, {
+        "text": " it runs (not an out-of-band network tap appliance).\n\n* **`pcap_latency_analyzer"
+      }, {
+        "text": "` (by FMADIO, GitHub)** – *Closest to Corvil’s wire-to-wire hop latency"
+      }, {
+        "text": "*\n  * **What it does:** Takes hardware-timestamped PCAPs captured at"
+      }, {
+        "text": " two points (e.g., switch ingress and egress, or two redundant market data feeds), hashes the TCP/UDP payloads, matches"
+      }, {
+        "text": " identical packets, and generates a nanosecond-resolution latency histogram.\n"
+      }, {
+        "text": "  * **Limitation:** Post-capture CLI analysis tool rather than a live web dashboard"
+      }, {
+        "text": ".\n\n---\n\n### 2. For Deep Packet Inspection (DPI) \u0026 Protocol Decoding\nIf you need Corvil’s ability to passively decode wire"
+      }, {
+        "text": " protocols (including custom or financial protocols) into structured logs/metrics:\n\n* **Zeek + Spicy (BSD License)** – *Closest to Corvil"
+      }, {
+        "text": "’s wire-data decoding engine*\n  * **"
+      }, {
+        "text": "What it does:** Passively inspects live traffic (via SPAN/TAP) and transforms raw packets into rich, structured transaction logs ("
+      }, {
+        "text": "TCP connection metrics, RTT, HTTP, TLS, DNS, etc.)"
+      }, {
+        "text": ".\n  * **Financial / Custom Protocols:** Zeek natively includes **Spicy** (a parser generator),"
+      }, {
+        "text": " which financial firms use to write custom dissectors—such as for **FIX** (4.0–5.0/"
+      }, {
+        "text": "FIXT) or binary market data feeds—without having to store petabytes of raw PCAPs"
+      }, {
+        "text": ".\n  * **Best paired with:** OpenSearch/ClickHouse + Grafana for dashboards and alerting.\n\n---\n\n###"
+      }, {
+        "text": " 3. For High-Speed Full Packet Capture \u0026 Search\nIf you want Corvil’s continuous \"always-on\" PCAP recording with"
+      }, {
+        "text": " fast querying:\n\n* **Arkime (formerly Moloch, Apache 2.0 License"
+      }, {
+        "text": ")**\n  * **What it does:** Captures traffic at tens of Gbps to disk in"
+      }, {
+        "text": " standard PCAP format while indexing L3–L7 session metadata into OpenSearch/Elasticsearch"
+      }, {
+        "text": ". You get a web UI to search sessions by IP, port, protocol, or tags, and export exact PCAP slices"
+      }, {
+        "text": " directly into **Wireshark** (which itself has built-in dissectors for FIX, ITCH, OUCH, etc.).\n  * **Note on precision:** For sub-microsecond timestamps,"
+      }, {
+        "text": " pair Linux capture tools (`netsniff-ng` or `tcpdump --time-stamp-precision\u003dnano`)"
+      }, {
+        "text": " with a PTP-synchronized NIC (`linuxptp`).\n\n---\n\n### 4."
+      }, {
+        "text": " For Real-Time Network Performance, RTT \u0026 Burst Visibility\nIf you are using Corvil more as a general **Network Performance Monitoring \u0026 Diagnostics"
+      }, {
+        "text": " (NPMD)** tool rather than for trading protocols:\n\n* **ntopng Community Edition + nDPI (GPL"
+      }, {
+        "text": "v3)**\n  * **What it does"
+      }, {
+        "text": ":** Continuous real-time traffic visibility, Deep Packet Inspection (via nDPI), TCP retransmissions, packet loss, and"
+      }, {
+        "text": " RTT/latency KPIs. Newer versions also support high-resolution time"
+      }, {
+        "text": "-series (15-second granularity or lower) to catch short traffic spikes.\n  * **Caveat:** The"
+      }, {
+        "text": " core `ntopng` Community edition is free and open source, while their high-speed 100G"
+      }, {
+        "text": " disk-recording module (`n2disk`) and zero-copy drivers (`PF_RING ZC`) require paid licenses"
+      }, {
+        "text": ".\n\n* **DeepFlow (Apache 2.0 License)**\n  "
+      }, {
+        "text": "* **What it does:** Uses eBPF on Linux servers/Kubernetes to automatically build a service map and measure per-flow **TCP"
+      }, {
+        "text": " connection latency, ACK delay, and application response latency** with zero code changes"
+      }, {
+        "text": ". It also supports **Wasm plugins** if you want to parse proprietary protocols.\n  * **Best for"
+      }, {
+        "text": ":** Cloud-native, microservice, or Linux host environments rather than hardware switch taps.\n\n* **Elastic Packetbeat (Open Source / Elastic License)**\n  * **What it does:** Lightweight packet shipper"
+      }, {
+        "text": " that calculates request/response latency for standard protocols (HTTP, DNS, TLS, MySQL, PostgreSQL, Redis) and streams them into Elasticsearch/"
+      }, {
+        "text": "OpenSearch + Kibana.\n\n---\n\n### Summary: How to Build a \"DIY"
+      }, {
+        "text": " Corvil\" Stack for Free\nIf you want to assemble an end-to-end free alternative on commodity Linux hardware:\n\n| Cor"
+      }, {
+        "text": "vil Feature | Open-Source Equivalent |\n| :--- | :--- |\n| **Hardware Timestamping** | PTP-capable"
+      }, {
+        "text": " NIC (e.g., NVIDIA ConnectX / Intel) + **`linuxptp`**"
+      }, {
+        "text": " |\n| **Lossless Full PCAP \u0026 Search** | **`Arkime`**"
+      }, {
+        "text": " (or **`netsniff-ng`** for raw capture) |\n| **Protocol Decoding ("
+      }, {
+        "text": "incl. FIX)** | **`Zeek` + `Spicy`**"
+      }, {
+        "text": " (or **`epam/ebpf-fix-latency-tool`** for FIX RTT)"
+      }, {
+        "text": " |\n| **Real-time Flow \u0026 TCP Health** | **`ntopng Community`**"
+      }, {
+        "text": " or **`DeepFlow`** |\n| **Storage \u0026 Dashboards** | **Click"
+      }, {
+        "text": "House** or **OpenSearch** + **Grafana** |\n\nIf you let me know whether your priority is **financial/trading protocols (FIX"
+      }, {
+        "text": ", market data gaps, tick-to-trade)** or **general data center network latency and microbursts**, I can narrow this"
+      }, {
+        "text": " down to a specific setup guide."
+      }, {
+        "text": "",
+        "thoughtSignature": "EowwCokwAWkUfRNTgypUXFgnQXnlzAqi6ovtfA0axRDnNhn+X4JYtxlPaa/CfNY7EMRWg1hqedxGnPME+wCu8+4Q3EJPpGT1anI5OyUYr3eYMcd7gzc71Q+leyhcmr/MwD+H0CSG5yOoMPxszb4G/5OZ8renBuvo3ivSJwibrY/T38rJgws1/0z9oJkhE8YxJqQtyKuDiUNJGJhmZJaoehhOU+4vf8muv5L2HoTwAEaLyK1kipoRuFCOhJ4sb7JHIF+PLn02hP6nXxDzCxpmKdo0tMFowFQo3XFJ1Zeqt5K5ahcKjwzoAhReU1yEUj1O9BUvTcWpSEJ1PgP8ME6Veixj8+j7LS+9AX8cC25xuDBwy1cbUo5WrKM4DtFyrhUwi7LSzPIozZByLVzKPQsiWp6G+Ut3XM2i05tcN6NsD/k86ZJnL33ScZ6bekj/rjKR9j60oL7qAnUrkRF2BExgRKgzuYZy8W18JzqCuOdv+XYJHu8odkhN0PgJwyvgTHADNtpg8sCuoWk65X/qhaluClUSpRsxkD3qh5X7BDFg+S+0GA24YatKaCXlM/a07QT2ZkoUn3VsOWraufM97xdx3bzX5+WMjUKPcSsuEAHUkvY2FH3Kr56pRAXgNekXT+DV6ljt+AYM4+40wA7P4qwDfopVrQS6bMKzH4yIScL/+LHH4oPeP0/sDIW3lo37Y7UwRrpVi4MhLLR6OTDacdS5ZGi3ZVTff0ifPTmpgy6Qs6MeXcNLVWYtdZzL+M+jzu45olqXFvXyJtMY0Ttbt6a808aHoo2SEMLUH8gKRvZPo3aDRouou5iygRKP2/igijDrrgVMpopZHWkW6WKfq7ZHyroLD/iYdlFWMxqxMc3cqmJekI2z3qQ6p0p4exV15JPH34vn6cYBcXgfr3W9B8TN4ZM0E62mbj42MjVCVpi+GUXeiQUv0OBc8NETqxHwW+KiS6MNuFqY2/KAe/w3ku9NxC5oRngVZhDDXZlR/hukI82VNasR9LHn9d/l8xfsTPZekrksKoYDDrbmQaH7NgrQHPEdrIazBZ6qg6TF4LOkz/hGkhk7JQVwaIzYdwHGQfJHbvQ05HLmDdbZMaFEysfHqtahfITpu1x5SxUlu/4lmZXOtg5hQ33AcSYAd5vKiAs1YMCoWRIlftblT5fQmpoX2gjAMKGXjjm29hPEBztuvW+IVyCFTv/zLs4fOFYc3m87M+ZlCnZ8GfxYLDZswbXxYHGmHJRgkuCGfLaHWCnetMlUageB1MLGwyvS8Faz+yTx35GTbdkEw8i4X0vlezCJ6VSXEIIWnTuemcuQi7W8wQ4WopH/8IQXc1k5Kdzq6N2zHAVqVCo7hG6KW7FcpHxto/unVbcB0A84KbbQiXN1S9BZ/mDcXEUnm3dSbqC4bxkOE0fpURUfvoBxt1svPJ7xrt/d4uXaG83P5z914pptiCwmNoXcQoYi2zVmKHZ0hheianT7LwQ+DzZujfkC2zzeC1hnzKakeMrhZodxzZb9uqC9qd7N/aAqJgye0W1iKZoLb9T/524p+wh2wYEo3pt1+RSJpus5LKp3on1LtNGR5WSEgSojdIOF87kitAyz9KSzzfu4QxOPOYMpR5Ma5vnGxqehn9vgCAILGRLnmK1nNW3hcMmF4X9KFWcPUt0UbUqS0XcOgVXTZYl8vfAMgRZqUAVpJ1QPMF5VasfPaR8OyoyMjSFizyCIq/VeuVUIdxNX/bGga0pMLpwngzLnOB4/OA8MgVE1InEZQKahZfC1/wIC+p33N2heKYoLTDQFhJPesq2RPhLB+suoljQQvA2TMrtqkfLk70a2UHU/c3aBqg9qlstLn0ZKtX+JglOyqyFgw/jW8bisnIkBlXxQb9DS8fx5SDhGfAm6c+Y/8E+fPfNjNRTMPciwAswJcq5mgCDYYvlsizywBiV6SPgkXZmHW1XHBWxngHvgoOF9xcle68XaRgTvc1PxRXTce54JE8NhlZ+A36Fd5PwXVi0eDt5XwYsidY+n7qzJg9F2WBf96MYkqnep43Oo2NEVyEYvkTmS9Gk+kUy43QzaajBm566H42YmiGuvAQ0v5KLqluM1HgAsmNCB1YTQcPn/68LX8rVEvn2Dz885AEC1R8q3abZlHa8MxM+L+yeL0nKaGl72a1C1M0f+dhQDk18ALWEUob2nm8exkfOgMXAK7iBHHDKR73yTSrIyasP0bBztS06OZv70VuFT5TqdmQ/MUy3buE/BAyLcqC9cODLHvttriChJz7WJP6ZttvMT7ZN49BrCquUekp3XnXHy/B36v9JkCAqLnDv0pPiQ2sLFC4VDh5O0KxP4BrTNmVSmI0SRaCKjByRlprpVD7xfAKc6D8Lyxoh7Xqlh1Dy3r0/nE8PVZ10Dh8TFCPEJjdFWiuJQjpUwmj7zee6jzhjL3j1pHFFaHQAkoXwtbdT5VfWQCDg11kbZAq2VVnNjznvNqkoh9GvdfMK6IUf51EPZmE4pwuUHVXkgRvSVA+K8pfbUuVggjNUYUT3Lof9c600XEJJ3GGqT2pL/8NKv988GSQP27hwt2y5zUyebBdzcRuoP/z6g4yUIg+IrR7WApgmMXmPxwUX+rln+qiad0ijT3DU97HXwL53jzscS/FdcWd1EuZAlzLh5uH4r9MgOYyB1d60Ax0A2qY2IgCDMfG5o8qJUPzUO4tdPmvs89EfvLXxNYJ98GLWjO1XFDiNubpIjy7Za2nxTbYyBPcCP9MDS2Tc6+g98OZlInS4aTw5TPnwa9XBsE/eroXFzqh1a8kg+sB5+alpi/sBu1uKz61+8cR8GAu06SyLqIGGl9rWqCZ+ClZyxVTDqSvlQZzsJX/9LJBkqZsSjRm5iJ6LjvG9KmuUY8b1Rzug5yZrz/JqAiPpe9HCAKp5awuAZ1PfFY6qJaDJZwjT2a1HhIKbjS98ZH4aI+HwUrdKaW6nq6kLhI3HcZF2SHjgP8F0mq5gHBLvXGKRGFOwkwhePO39SunvRCG6reFEPa/IbVsnmgpGDJ8UyLoB2j+m+3IfDN1Zn1/7s0MiYacEGT1HAxXAJp2ErtXMDGkABFLNpQSWBD3IRjRoEkGhPg9Y63HvPQzdn9HWCzBJIJJVowC0cpa+6PxDJweHvmDAOftPkTefRVzho14liSFnK45W4m78oCVQ9dj0mCKK0YLTIS7XRliVarSVjt/WAtoEi2/jQfb75MHpioMeD8oRJ9EZdmLFlwouMsiCN6I2W/BT9B0feqBiNTytEfqFyim3oSJdOeN8qEndmBg+GfVJI/a0rIc/DGxsxNFr0bVNoBqEY4I7zB/wsB61H2lryToF/850/viekFc1Z+B5OVC18Txn9f0sifBhhikJrSTgyStdwHh8joqy+31cdrgtonc60ZHJjX5Ij+DqWOdsa+Z0YIbSB4mJ1c+5byCk/CTP15OICfHfyUWzT1FH/aLtWBYeYCc7KJK0efRiHcbysNDv6qrQKDvHkinN1B7FadnX5Fd+Zzr9tZL8todCnxAfVx0OrF78ikX/ISo2+BXMhiWf/ByQ0TG/5HjW1ktgWgiY6FsV5I1ZrOXrmWvkQnmVhBEtilMDm7eqZ5pKap0AYLCUGgXWnN7yGGMDtIllfJuil9vkWsgraKqxP39tBO4BpcmWV2hhETqd0HPitMcP7cm+qvL0Z/GvgYSRV3L9CwctbKPsOKAFH7dEWJvt5gbhseVq9Du6L19Xc2Ofx63R2AJk3OS8Tql0QB1g+D7vZLFSHwDySO+7KpJCXLNeEjKdhPqQDvr4JD62Mz9DGPl1uA7lyKbPbwO2KzPB6Q1ZMQ09uy6Awz11U9YqDZAddBYHpdGADHyN6e2+hbxmwk5RSxixkSUjiQ3qGvq/fXbhVDnV2M1vdimn5K6uwpGd82uyt43D2F6oaftZfKijmkVVzIHg/fekv/zYKcBTybHV6GL+QH2fZJPF4xqr5UU9JUEL6bqYsYEAx5Mm+L24wicVrMcaBJSumLR78HJ6Nx9pZwP1B9oeOBYR3JvBJ5dil2t78iAh9wxpbLB6xC+C8aCCvtsy05l3z8Z4VzwcIWQcF5gVagvzEWhHptNzRBxTPDNkl09w6nh5rnE/BMR3GNJuukW+64L8bdBa3flJ6M5gIEy90+S0Fa+vs6TjVEuiXjIFBw4Yqsb03XJVaIvQvHiH9OgQK5hTmM+FssaivcMyH+o5b1rd9Y3mFS/xOHmo0WGm/Ckq/GYu6KMyGadA8KjI7oagogN+wtcQcvbsFr6BndSUtOu/oo7jwZRvJxaOXtZ2vWiMOcZK5bnjMBY/VwqvmHC1AySv/5yy3nvqeTEIycRfoVdira3h2aeQ+sbcsohq7rfw7aZzNtm1bdTBykMNlK3tQZNPPJeWICj3cYadHbPVSjqWBbM8H1wa1jBH8pDFOTR95iAmYaFleBsMBNkJVi7z5AhPbRXU39wYSU6kwaZ/dYtpxOyw9WZIzaffdPDF8orltBAFNa3ottY2omnl5aCxo0CowEnNxcU72+taT9DF/QWsGraaAKqYyuPPIPtJxESW1XeP7SZ3nk+DjraUXVFZCpWfwvPqsNv/K3+MYd028FGJRqHoIXhiZdMA9GcsG4l8iHzgTWjSloTK0JeYQ8YfH7qzX05dksx4obI4CEmgQYTlDyVtQu3c7RVAvNIyUW/8CpRPso/J8IAB55EyUvNjVfBUYPnnPSTFM1plYYjP6qS8MLSshL6APZLUrZLmuL0/F85SzOwep2RdmRvZNLERiZ+43Y0i3L0WZ4suCljvQkzN1TsCiW69JQt6QB0/iW/TqHx1iB/Sk48IdmFF/T6CU4iB+hMdmw1J5AwCdMFl1PeKO4+o7J1SlKD2st3PImuM/6i3v6cwQZG0D98klHhQbuxdGXSqwtOdoO0wQAxhi4w8qWmvZK0rI7XRwHGSHI9fnZNFiDOsZEQKrWbNmcZxuj7KzU+97OVhiKu3YQshJ0cf4mtLlvf9YlJv2z/4tJxgIMe5JwK7W4jA4xb2DrVxYq0U/lK+y8fMqxsRZ1UmlTHhSyiM5H/KFKda4HJNG55A08sf1bBdkP6W4NsEZnII/D2id+qYC/2SuyvyxfFg1OhygrgZuVN1paTGXPQ27SdONotswfymqgiHitXIK6WYifcLjY3I4bg94Pl9NaeZUqVaJWWfyi1qWSXRJ8RArOWFwZLY5j94eC5sSVWZdLhnF30Hy5mwDgz5p8LwyCsgZnHt4/99fCoDXvbGoGt2Fyoo+kPWRWXUwSvb9oflEm3gSA9yvatlbKLQYGT/rgX2CRDSXJPdbnVodfVZzSmcLIpQVrL1mSgJOn9BrP/J2dIayyVALl1+r4wnC/c4oA8r1EcQR8nBy0qvan7G6WmDOR516iUbhcfOA/hAuHDYPyiCR27bmz61tkGRjZtjaTg7je52yb91ts/P6DTM0T56Q20WPFlDUqpaExHGxVGtvGSJtGtJdCxQqZBAEOhT0qvNMOmE+E5NlEL6i6p6R69/OFiJgvi/UIIxc1dmlJjBIMt7U7sLyniMnAt+s9J/gSd4pe3l6/4fsRODupguMDjLDEOqZDK/dCgvk9CzpFFU9ecBPz8Ah4fjattGum7mitbD6xsX+IrF6yARtMTHrPvsI+secpPF8w+n5YJCmkZVhzI8rxkcgCXscE+q/1Hbi/fxO7DeIUC5b4kfNkBXKT9QjdMJ/1ogUczqHKiBJ4qtJSkr6+/ftQ0TTiJqc+Phn2kBJYNwdL+SHppiwg2nrYZZ46G6SjWe7vw1SeEwibV42pzaFsBx2ppCUaJ+9RVS9JUzHDQGFpZ0Vo8SrHimRiXSeWfziH7FT1tXbMm5Cmvx594AY4TbiMTlGr/JFLgdLtMKIUPgSmyxxfNjeXxVS9fh856ED7wbXA40yLg76bNsARF+aLwip0i2ACgXkvb02ximtSWzUGWVXatMs365I1T/uYCqIR4Yahr9/79Ys5tuv+5MJnkY+s3eAk111Gqzd8odQsYp/xZGZ75yDj5inWavgXBx9zxFc53wpXb9jemDobBgKsbIYIpc50JO6lmALwjw4XQkmFApUxF71kLlljomORzso/W9PIgt+Sw9ciVpwoLsEuVR2NzB+DEuErN7fJ2M6PoJTm5meRYusbS/vjBZD2Zc3rzzz7jQCvgW/QShtvDVmlBHmYeBZoUajqxfpajc1AooIrU76VTquMgtxKxcLgwSsMgP/MHRQzR2mjB0Tk9Q9ISDrmHsdiXOEI5XRbaJjtO4a7ESnBjyY9Iv6T4hL5WIIcSBmuiKnkG7OxWpvzuCDhHhBOEdWJ++YAGqMcnoABNUNzsS+MXPDwpeovuwG5Jo9Jx/J2Un3NL2N8/4VGihw6YSDe/+OkkK8CRuh14UDWNgOCSnGE68kKi+VwnoGOunZbAqpgqzGkcVGhM+9wCXEU5WiM2T70H7rjv2FHiGJemjTgF95fTM921twWKnmjprXQNHiXpMp9ov0KnuYhW1RNNbVnFdMEZCvj9/6GhHAZj5LME5bhIpTAZQvkmM7xsMnym7RMWv2pDB8DUzw/0WA85V8SQK7/elt41xyOK44POiEFkNRs3nuhcYC+jA0L5RanaiNDsxI8KL50TWH0BhslBmzLNzM4D+kKXu7/yVq3ltCIrlDm2esH2aqpGXBBM3j4MCTgrDyXiUZJ+cOegKxpNNQEiCib/pDcgt+5fXnhZNkkZQsy/SujyJbhE27UFcvFH3uxp73eJSa4wlqXa1kj3uYHlBAJWQ/7gjJqtLbFJDCzwZeQjn4tnSaSfZSC0XRswZ4LvkNg+WChHqAaafK5OR/WQjF+bSc0bkp+7RvbykqrZfTglWm3cwsWSaANXV5D7XvlJa/KJZdQoeeWnznHmixS470H90X+U5agI65A3rDpDlQK1BKscxFooe9Tj2b498W1XCf0RINrFNcwzknhT/LAiNDpPW1CFDQrv4KM4kVdwFxh6YhrqWXA8gy0GWkEIAowpsKi+WLqEQ/6yyyG4+CEg2TPqezNgFDcqHp0OCW6dJEuiLQ7zg/NqDemJ9MRTF/ys3tYVM9VPLfnDHuXdC1WrxImp8uoW6adh7/CgkPqSiFzumq8vXCGVjXM4PJkI0v2N4+3MzNMZo8RUbvlPbhvNDni9tjzl1u0LVuxFMseeOCm1TtKYWXqaBXnfCfluZPSiGsydQysSbxK0lgjwsjFk9MUFdx9TkQlK2EB2m4mBeQh6FtJmNcJBHihHhED7g4e0wmss587KKtCjTgOxLd4QvQQDbU9DSdSOhmpIdm/A5IuOH2VM4bJcPTdzR1TxczB3aPrdFOrMfk3KWfy5o4LB/k/y08YBMHQxmsdZ2v+GPkvE+Misr7T4PMp+IUJKU/lmskN1IFh3hxrXPHK58lxVOGpLpOS7pBiHQ0mpGfRnFnnJgFB1gUFzZmHkB6vuuJxjeh5+UnCww6z70RGrGGFu8Keiv1/5qOHYY/BH4p59MdWZdSzXthW7IUDgMyjqGrfWWjyDt4PXzzxEhKndoV5y8CqblG1iyQeayhCccjfghzQQ+PheUzVNJ2xt6v4WNgQtrJM95g918bhSBy3k7DE+/aWC6sXxiPIXDMaN5WfgN578P40uhnKAGvjgOHYgi5EaadjMUu9dKMu1qC1EEd1mf46biPgBh/MxlErtN9LyT94gealG95DLOOa2cMQsfVEiETOik6IPoVdcXk4alUfTf8k2Cm36pM/iK3X2yhC66oCwBM2TLUBthYKl5MQZFMRUMkz/dajANGgMjvufyXcsU4VwEWyL+8JUQzO78B7H17ZBdK+Gab/PGN7lvDUrYFh+ZuenHCMAvHx/p4YJo87fj+G1AH4xMyuXidioPwGpiCsm7RYfpLceHnfTAe007aEbeTF/ununasrKcnGRt4YzIf4BnvjKFjiktcHDNdNSSyDwO8Skknpx9szAkyB5OU/DVnOCMZimSiVKXvdhn9e9nDMMtPaovZhxC1XTZM4/e1B/ZqXhyzkBPR/l3qvB78KiGImk8H7x0cmK3QkIK2J31J6t4rfGx8lN1lS2GqOkm+n1+JOj6Tvry4SWQmmXFQ//08/92gmBCSyHL8kQyFBNcqcbQeqtpGRwHvNzX/gSlGML3FLfqwJr1L+zxselUQ2We1SX67YbmXrSqXmhvH+DuWHZ062uVIfjZf61rts77mwFb3cf5++iYmYOXrfg9b7+Zi8qOFcmaz1HosMq+B"
+      }],
+      "createTime": "2026-11-17T20:59:50.628Z"
+    }],
+    "pendingInputs": [{
+      "text": "",
+      "role": "user"
+    }]
+  }
+}
